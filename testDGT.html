@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<title>TagByTag</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+         
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125130557-1"></script>
+<style>
+input[type=radio] {
+    display: none;
+}
+
+i {
+   display: inline-block;
+   width: 20px;
+    height: 20px;
+ border-radius: 50%;
+ border: 1px solid black;
+  background: grey;
+    position: relative;
+}
+
+
+i:before {
+    position: absolute;
+    top:0; 
+    left: 0;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    text-align: center
+}
+
+.correct + i {
+  background: green;
+}
+
+.correct + i:before {
+  background: green;
+  content: '\f00c';
+}
+
+.wrong + i:before {
+    background: red;
+    content: '\f00d';
+}
+
+table .correct {
+    background: green;
+}
+
+table .wrong {
+    background: red;
+}
+
+.disabled {
+   pointer-events: none;
+}
+
+.disabledNext {
+   pointer-events: none;
+    background-color: #ddd;
+    color: black;
+    font-size: 24px;
+    padding: 8px 16px;
+}
+
+
+label {
+    display: block;
+}
+
+span.quest {font-weight: bold;
+font-size: 24px;}
+
+a {
+    text-decoration: none;
+  //  display: inline-block;
+    padding: 8px 16px;
+    
+}
+
+a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.next {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 24px;
+}
+
+#myTable {
+    border: 1px dotted black;
+    margin-top: 20px;
+}
+
+td {
+    width: 50px;
+}
+
+#container {
+    margin: 30px;
+}
+
+#imgTest {
+ text-align: right;
+  margin-right: 20px; 
+}
+
+.time {
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+#divNext {
+    margin-top: 20px;   
+}
+
+span, p {
+    font-size: 24px;
+    padding: 8px 16px;
+}
+</style>
+<script type="text/javascript">
+    
+    if (window.NodeList && !NodeList.prototype.forEach) {
+        NodeList.prototype.forEach = Array.prototype.forEach;
+    }
+</script>
+</head>
+<body>
+    <div id="imgTest"><img src="test6.png" width="332" height="200"></div>
+    <div id="container">
+        <div id="time" class="time"></div>
+        <div id="question" class="float-left ml-5 mt-5"> </div>
+        <div id="divNext"><center><a href="#" id="next" class="next"><span>Siguiente &raquo;</span></a></center><div><br><br>
+
+        <div id="tablaQuest"></div>
+
+<div id="errores"></div>
+    </div>
+
+<script type="text/javascript">
+    
+ 
+ 
+	var time =180;
+	
+	 var intervalID = setInterval(countSec, 1000);
+         
+	function countSec() {	
+    
+            time--;
+        
+        time1=`0${Math.floor(time/60)} : ${time%60}`;
+        
+       document.getElementById("time").innerHTML=`<p><b>Queda tiempo: ${time1}</b></p>`;
+       
+       if (time===0) {
+           stopSec();
+           document.getElementById("time").innerHTML=`<p><font color="red"><b>Tiempo acabó!</b></font></p>`;
+       }
+   
+   }
+   
+  function stopSec() {
+    clearInterval(intervalID);
+}
+        
+        countSec();
+        
+        
+        
+      
+	
+/*
+var questions=[
+{
+    text: "¿Dónde debe estacionar en una autopista?",
+    answers: ["En la mediana.",
+          "Fuera de la calzada, en el arcén de la derecha.",
+          "En los lugares específicamente señalizados para tal fin."],
+    correctAnswer: 2,
+    selectedAnswer: null
+},
+{
+    text: "La luz antiniebla trasera deberá utilizarse en caso de...",
+    answers: ["frenada brusca.",
+          "heladas nocturnas.",
+          "nubes densas de humo."],
+    correctAnswer: 2,
+    selectedAnswer: null
+},
+{
+    text: "¿Conducir bajo los efectos de un medicamento, ¿está permitido?",
+    answers: ["Sólo si no altera el estado físico o mental.",
+          " Sí, siempre que no se mezcle con alcohol.",
+          "No, en ningún caso."],
+    correctAnswer: 0,
+    selectedAnswer: null
+},
+{
+    text: "¿El número de teléfono de emergencias en caso de accidentes de tráfico es...",
+    answers: ["el 911.",
+          "el 1003.",
+          "el 112."],
+    correctAnswer: 2,
+    selectedAnswer: null
+},
+{
+    text: "<img src='senales/g0513.jpg' width='100px' height='100px'><br>Esta señal indica la velocidad: ",
+    answers: ["maxima permitida",
+          "máxima aconsejada",
+          "mínima obligatoria"],
+    correctAnswer: 0,
+    selectedAnswer: null
+}
+];  */
+
+
+var count_cor=0;
+    var count_er=0;
+    var num_question = 0;
+
+
+function initApp(questions) {
+    var questionsContainer = document.getElementById('question');
+    
+    function getAnswerStatus(question) {
+        return question.selectedAnswer === question.correctAnswer ? 'correct' : 'wrong';
+
+    }
+
+    function createQuestionMarkup (question) {
+        var markup = '<span class="quest"> Pregunta ' + (num_question+1) + "<br><br>" + question.text + '</span><br><br/>';
+
+
+        question.answers.forEach(function(answer, idx) {
+            var isCorrectAnswer = (idx === question.correctAnswer) ? true : "";
+             var isSelectedAnswer = question.selectedAnswer === idx;
+            var answerStatus = isSelectedAnswer ? getAnswerStatus(question) : '';
+
+            markup += '<label><input class="'+ answerStatus +'" type=radio name="q' + idx + '" value="' + isCorrectAnswer +
+         '""><i class="fa ' + idx + '"></i><span>' + answer + '</span><br/></label>';
+        });
+   
+ nextButton.classList.remove("next");       
+ nextButton.classList.add("disabledNext");
+        return markup;
+    }
+
+    
+    function setPristine(answers) {
+    answers.forEach(function(answer) {
+        answer.removeAttribute("class");
+    });
+}
+
+ const nextButton = document.getElementById("next");
+   nextButton.addEventListener("click", Next);
+  
+    
+    function addEvents() {
+        var answers = questionsContainer.querySelectorAll('input');
+
+        answers.forEach(function(answer, index) {
+            answer.addEventListener('click', onClick);
+
+
+            function onClick(event) {
+                var input = event.target;
+                questions[num_question].selectedAnswer = index;
+                var isCorrect = input.getAttribute('value');
+
+                setPristine(answers);
+
+                input.classList.add(isCorrect ? "correct" : "wrong");
+
+                var correct = questionsContainer.querySelectorAll('input[value="true"]');
+                correct.forEach(function(cor){
+                cor.classList.add("correct"); 
+            });
+
+            if (isCorrect=="true") {
+                count_cor++;
+                
+                input.classList.add("correct");
+
+            }
+
+            if (isCorrect=="") {
+                count_er++;
+
+            }
+
+            questionsContainer.classList.add('disabled');
+            nextButton.classList.remove("disabledNext");
+            nextButton.classList.add("next");
+            renderTable(questions);
+        }
+    });
+    }
+
+    function result() { 
+        return ("<b><p>Tus resultados:</p><p><font color='green'>Respuestas correctas: " + count_cor + "</font></p><p><font color='red'>Respuestas erroneas: " + count_er + "</font></p></b>");
+    }
+    
+  
+
+    function Next() {
+
+        questionsContainer.innerHTML =" ";
+        num_question++;
+
+        if (num_question < questions.length) {
+              questionsContainer.classList.remove('disabled');
+            questionsContainer.innerHTML = createQuestionMarkup(questions[num_question]) + "<br>"; 
+            document.getElementById("next").innerHTML="<span>Siguiente &raquo;</span>";      
+        }
+
+        // Last question
+        if (num_question == questions.length - 1) { 
+            document.getElementById("next").innerHTML="<span>Ver resultatos</span>"; 
+        }
+
+        if (num_question === questions.length) {
+           questionsContainer.innerHTML = result(); 
+           document.getElementById("next").style.display="none"; 
+           document.getElementById("previous").style.display="none"; 
+        }
+
+        addEvents(); 
+
+    }
+
+
+    questionsContainer.innerHTML = createQuestionMarkup(questions[num_question]) + "<br>";
+
+    addEvents();
+
+    var table = document.getElementById("tablaQuest");
+
+
+    function renderTable(questions) {
+        table.innerHTML = '';
+        var tableElement = document.createElement("TABLE");
+        tableElement.setAttribute("id", "myTable");
+        tableElement.setAttribute('border', '1');
+        tableElement.setAttribute('align', 'center');
+
+        var tr = document.createElement("TR");
+        tr.setAttribute("id", "myTr");
+
+        questions.forEach(function(question, index) {
+            var cell = document.createElement("TD");
+            var answerStatusClass =(question.selectedAnswer!==null && getAnswerStatus(question));
+
+            if(answerStatusClass) {
+                 cell.classList.add(answerStatusClass);
+            }
+            var span=document.createElement("span");
+            span.classList.add("text-center");
+            var t = document.createTextNode(index+1);
+            
+            span.appendChild(t);
+            cell.appendChild(span);
+            tr.appendChild(cell);
+        });
+
+        tableElement.appendChild(tr);
+        table.appendChild(tableElement);
+    }
+
+    renderTable(questions);
+}
+
+
+ var questions = fetch('http://tagbytag.es/questionsDGT.json')
+    .then(res => res.json())
+    .then(questions => { 
+    initApp(questions) }); 
+
+
+
+</script>
+
+
+</body>
+</html>

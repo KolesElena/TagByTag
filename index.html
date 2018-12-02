@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+<title>TagByTag</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('bannerFin.png');
+    min-height: 100%;
+}
+
+
+
+@media only screen and (max-device-width: 900px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+        min-height: 400px;
+    }
+    
+    
+}
+
+.content {
+    max-width: 1580px;
+    margin: auto;
+}
+
+ .css-typing
+            {
+                width: 100%;
+              white-space: nowrap;
+             
+                overflow: hidden;
+                -webkit-animation: type 5s steps(50, end);
+                animation: type 5s steps(50, end);
+                
+            }
+            
+            
+               
+            
+            @keyframes type {
+                from {width: 0;}
+            }
+            
+            @-webkit-keyframes type {
+                from {width: 0;}
+            }
+            
+            
+    
+@-webkit-keyframes flash {
+  from, 50%, to {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  from, 50%, to {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.flash {
+  -webkit-animation: flash 1s infinite;
+  animation: flash 1.5s infinite;
+}        
+            
+            
+            
+
+.hov {
+    
+    opacity: 0.1;
+ }  
+ 
+ .onbottom {
+ position:relative; background-color: #acc8de;
+ width: 100%;
+ height: 100%;
+ }
+ 
+ .imagen {
+     width: 100%;
+     height: 100%;
+ }
+ 
+ .hidden {
+     position: absolute; left: 0; top:50%; text-align: center; width: 100%; height: 100%;  color: white; display: none;
+    
+ }
+ .mirar {
+    position: absolute; left: 0; top:50%; text-align: center; width: 100%; height: 100%;  color: white; 
+ }
+
+.border_mirar {
+    border: 2px solid white;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+    background-image: url("manyipad.jpg");
+    min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("movil2.png");
+    min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+.opacity {
+    opacity: 0.2;
+}
+.tag {
+    opacity: 1;
+}
+
+.css-typing {
+    padding: 0;
+    margin: 0;
+}
+
+
+.color2 {
+    background: #a5d1d4;
+}
+
+.color3 {
+ background:   #d2e2f3;
+}
+
+.color4 {
+    background: #acc8de;
+}
+
+.color1 {
+  background:  #e3e7f0;
+}
+
+.text-color2 {
+    color: #a5d1d4;
+}
+
+.proyecto {
+    max-height: 480px;
+    width: 100%;
+    margin: 0;
+}
+
+
+@media (max-width: 680px) and (orientation: portrait) {
+   
+ h2 {
+        font-size: 22px;
+    }
+    
+    p {
+        font-size: 18px;
+    }
+   
+    h3 {
+        font-size: 20px;
+    }
+    
+     h4 {
+        font-size: 18px;
+    }
+    
+    h1 {
+        font-size: 34px;
+    }
+ }
+    
+       
+    
+    
+
+
+
+@media (max-width: 680px) and (orientation: landscape) {
+    
+    
+    p {
+        font-size: 18px;
+    }
+    
+    h2 {
+        font-size: 22px;
+    }
+    
+    h3 {
+        font-size: 20px;
+    }
+    h4 {
+        font-size: 18px;
+    }
+    h1 {
+        font-size: 34px;
+    }   
+}
+    
+@media (min-width: 681px)  {
+    
+    h1 {
+        font-size: 64px;
+    }
+    h2 {
+        font-size: 1.95rem;
+} 
+
+h3 {
+    font-size: 1.75rem;
+}
+
+
+p {
+        font-size: 18px;
+    }     
+            }
+
+
+</style>
+<script language="javascript">
+    
+  /* 
+    
+    
+  
+   var imagenes = document.querySelectorAll('.imagen');
+    imagenes.forEach(function(imagen) {
+        imagen.addEventListener('mouseover', onMouseOver);
+       
+
+        function onMouseOver(event) {
+            alert("hello");
+              var im = event.target;
+          im.classList.add("hov");
+        
+    }
+    
+    }); */
+    
+    
+
+
+   
+        
+       $(document).ready(function() {
+               
+        //     $(".mirar").hide();  
+              
+               
+                $(window).scroll(function (event) {
+            var top = $(window).scrollTop();
+             if(top >= 1000){
+               $("#pType").addClass("css-typing");
+               $("#spanType").addClass("flash");
+
+             } 
+});
+
+ $("#Mensaje").click(function(){
+     
+     if (($("#correo").val()=="")||($("#text_mensaje").val()=="")||($("#nombre").val()=="")) {     
+        $("#dataPHP").html("<font color='red'><b><p>Por favor rellena los campos!</p></b></font>");
+    }
+   
+    else {
+       const userData = {
+           nombre: $("#nombre").val(),
+           text_mensaje: $("#text_mensaje").val(),
+           correo: $("#correo").val()
+       };
+       
+       fetch('mensaje.php', {
+            method: 'POST',
+            body: JSON.stringify(userData),
+        })
+        .then(res => res.text())
+        .then(function(data){
+            $("#nombre").val("");
+            $("#correo").val("");
+            $("#text_mensaje").val("");
+            $("#dataPHP").empty();
+            $("#dataPHP").html(data);                 
+    });
+                   /*  $.post("mensaje.php",{"nombre":$("#nombre").val(), "text_mensaje":$("#text_mensaje").val(), "correo": $("#correo").val()},function(data){
+                         $("#nombre").val("");
+                         $("#correo").val("");
+                         $("#text_mensaje").val("");
+                         $("#dataPHP").empty();
+                         $("#dataPHP").html(data);     });      */     
+    
+    }
+});
+
+   
+ /*  
+   var imagenes=$(".imagen");
+   imagenes.each(function(imagen) {
+   imagen.mouseEnter(function(){
+        
+             this.addClass("hov");
+            $(".mirar").each(function(index) {
+               index.show();
+             });
+       });
+   });
+         
+   imagenes.each(function(imagen) {
+   imagen.mouseLeave(function(){
+        
+             this.removeClass("hov");
+            $(".mirar").each(function(index) {
+               index.hide();
+             });
+       });
+   });
+        
+      
+  
+ $(".imagen").mouseenter(function() {
+     $(this).addClass("hov");
+     $(".mirar").show;
+ });
+          
+          
+       */     
+      
+ /*    $("#image1").mouseenter(function() {
+         $(this).addClass("hov");
+         $("#mirar1").show();
+     }); 
+     
+     $("#image1").mouseleave(function() {
+         $(this).removeClass("hov");
+         $("#mirar1").hide();
+     }); 
+     
+     $("#image2").mouseenter(function() {
+         $(this).addClass("hov");
+         $("#mirar2").show();
+     }); 
+     
+     $("#image2").mouseleave(function() {
+         $(this).removeClass("hov");
+         $("#mirar2").hide();
+     }); 
+     
+     $("#image3").mouseenter(function() {
+         $(this).addClass("hov");
+         $("#mirar3").show();
+     }); 
+     
+     $("#image3").mouseleave(function() {
+         $(this).removeClass("hov");
+         $("#mirar3").hide();
+     }); 
+     
+     $("#image4").mouseenter(function() {
+         $(this).addClass("hov");
+         $("#mirar4").show();
+     }); 
+     
+     $("#image4").mouseleave(function() {
+         $(this).removeClass("hov");
+         $("#mirar4").hide();
+     }); */
+           
+           
+     const projects = document.querySelectorAll('.proyecto');
+     
+    const seeMoreElement = () => {
+    return `<span class="border_mirar">
+           Ver
+           <i class="fa fa-spinner fa-spin"></i>
+        </span>`; };
+     
+     projects.forEach((project) => {
+        project.addEventListener('mouseenter', (event) => {
+            const linkElement = event.currentTarget.querySelector('a');
+            const imagen = event.currentTarget.querySelector('.imagen');
+            const seeMoreContainer = document.createElement('div');
+            seeMoreContainer.classList.add('mirar');
+            
+            seeMoreContainer.innerHTML = seeMoreElement();
+            
+            linkElement.appendChild(seeMoreContainer);
+            imagen.style.opacity = '0.1';
+        });
+        
+        project.addEventListener('mouseleave', (event) => {
+            const linkElement = event.currentTarget.querySelector('a');
+            const seeMoreContainer = event.currentTarget.querySelector('.mirar');
+            const imagen = event.currentTarget.querySelector('.imagen');
+            
+            linkElement.removeChild(seeMoreContainer);
+            imagen.removeAttribute('style');
+        });
+     });
+    }); 
+  </script>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>AUTOR</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i>PROYECTOS</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i>CONTACTO</a>
+    <a href="index.html" class="w3-bar-item w3-right">
+        <img src='spain11.png'></a><a href="ruso/index.php" class="w3-bar-item w3-right"><img src='russia11.png'></a>
+    
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block color1 w3-hide w3-hide-large w3-hide-medium">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">AUTOR</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PROYECTOS</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACTO</a>
+  </div>
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+
+
+<div class="bgimg-1 w3-display-container" id="home">
+  <div class="w3-display-left" style="padding:48px; opacity:1;">
+    <h1>TagByTag</h1>
+    <h3 style="font-family: 'Tempus Sans ITC';">Desarrollo WEB</h3><br>
+    <span class="w3-large w3-hide-small w3-hide-medium">Buena pagina web es importante para tu negocio</span>
+    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Empieza hoy</a></p>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="content w3-container" id="about">
+    
+     <!-- Grid -->
+  <div class="w3-row">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Que ofrezco</span>
+    </div>
+    <div class="w3-row" style="height: 200px;">
+        <div class="w3-quarter w3-section  color1 text-center  h-100" id="div1" style="height: 100%;">
+      <h3>Diseño responsivo</h3>
+      <p>Paginas web a medida, bien integradas a qualquier dispositivo, sea Desktop, tableta o movil.</p>
+    </div>
+
+    <div class="w3-quarter w3-section  color2 text-center h-100" style="height: 100%;">
+      <h3>Funcionalidad</h3>
+      <p>Paginas web dinamicas. Comentarios, animaciones, calculaciones, feedback.</p>
+    </div>
+
+    <div class="w3-quarter w3-section color3 text-center h-100" style="height: 100%;">
+      <h3>Tecnologias</h3>
+      <p>Uso de ultimas tecnologias de desarrollo.</p>
+    </div>
+
+    <div class="w3-quarter w3-section text-center color4 h-100" style="height: 100%;" >
+      <h3>Optimización</h3>
+      <p>Codigo limpio, ligero, ideal para Navegadores asi que encontraren tu pagina con mas facilidad.<br></p>
+    </div>
+    </div></div>
+     
+  <!-- Grid -->
+  <div id="about">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Quien soy</span>
+    </div>
+  <p>Me llamo Elena. Me ocupo del desarrollo de paginas web desde cero en Barcelona, añadiendo toda la funcionalidad necesaria. Hago paginas responsivas que tienen buen aspecto en qualquier dispositivo.
+              Siempre estoy aprendiendo, dando preferencia a los recursos originales. Siempre acabo los proyectos.</p>
+  
+  
+  
+  <div class="w3-row">
+    <div class="w3-col m4 w3-padding-16">
+        <div class="color2"><img src="foto5.png" alt="Elena Kolesnikova web developer" style="width:100%"></div>  
+    <div class="w3-card-4 w3-padding-16 pl-2" style='position: relative;'>
+        
+        
+          <span class="w3-opacity">Programadora web Full stack</span>
+          <p id='pType' class="w3-text-grey" style='font-size: 14px; white-space: nowrap;'><b>'No soy un mago, solo estoy aprendiendo.'<span id='spanType'>|</span></b></p><br>
+          <h4 class="w3-large"><b><i class="fa fa-cubes text-color2 fa-fw w3-margin-right"></i>Estudios</b></h4>
+          <p>Formación en diseño web y photoshop,
+              Moscú, 2007</p>
+              <p>Academia de informatica Cepi-Base, "Especialista en PHP", Barcelona, 2017</p>
+              <p>Autoestudios (W3schools, Udemy, Codecademy y otros recursos)</p>
+        
+      </div>
+    </div>
+  
+ 
+      
+          
+   
+    
+
+    <!-- Hide this text on small devices -->
+    <div class="w3-col m6 w3-padding-large">
+       <p class="w3-large"><b><i class="fa fa-asterisk fa-fw text-color2 w3-margin-right"></i>Conocimientos</b></p>
+          <span>HTML5, CSS3, Bootstrap4</span>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge color2" style="width:95%"><div class="w3-center letra">95%</div></div>
+          </div><br>
+          <span>PHP, Ajax</span>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge color2" style="width:70%">
+              <div class="w3-center letra">70%</div>
+            </div>
+          </div><br>
+          <span>Javascript, Jquery</span>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge color2" style="width:70%"><div class="w3-center letra">70%</div></div>
+          </div><br>
+          <span>SQL, Mysql</span>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="w3-container w3-center w3-round-xlarge color2" style="width:95%"><div class="w3-center letra">95%</div></div>
+          </div><br>
+           <span>Git, Github</span>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge color2" style="width:100%">
+              <div class="w3-center letra">100%</div>
+            </div>
+          </div>
+          <br>
+           <span>Google Analytics</span>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge color2" style="width:70%">
+              <div class="w3-center letra">70%</div>
+            </div>
+          </div>
+          <br>
+          <span>Node.js, React</span>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge color2" style="width:20%">
+              <div class="w3-center letra">20%</div>
+            </div>
+          </div>
+          <br>
+    </div>
+  </div>
+ 
+  
+  
+</div>
+
+<div class="w3-row w3-center color3 w3-padding-16" style="max-height: 100px;">
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge"></span><br>
+    
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge"></span><br>
+    
+  </div>
+  
+</div>
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide"></span>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div class="content w3-container w3-padding-64" id="portfolio">
+  <h3 class="w3-center">PROYECTOS</h3>
+  <p class="w3-center"><em>Algunos de mis ultimos proyectos</em></p><br>
+
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div class="w3-center row">
+    <div class="w3-col m6 proyecto">
+       <div class='onbottom'><a href="testDGT.html" target="_blank">
+              <img src="testDGT.png" id="image1"  class="border border-dark img-fluid imagen" alt="sistema de test online"></a></div>
+    </div>
+
+    <div class="w3-col m6 proyecto">
+        <div class='onbottom'><a href="extranjeros/index.php" target="_blank">
+                <img src="extr_new.png" id="image2" class="border border-dark img-fluid imagen" alt="filtracion de data"></a></div>
+    </div>
+
+   
+  </div>
+
+  <div class="w3-center row">
+    <div class="w3-col m6  proyecto">
+       <div class='onbottom'><a href="Proyecto_final/presentacion.html" target="_blank">
+              <img src="taxi_new.png" id="image3" class="border border-dark img-fluid imagen" alt="panel administrativa"></a></div>
+    </div>
+
+    <div class="w3-col m6  proyecto">
+      <div class='onbottom'><a href="todoList/index.html" target="_blank">
+              <img src="todoScreen.png"  id="image4"   class="border border-dark img-fluid imagen" alt="dinamic todoList"></a></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide"></span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">CONTACTOS</h3>
+  <p class="w3-center"><em>Me gustaría tener tu feedback!</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+      
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Barcelona, Spain<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Tel: +34 617 779 940<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: info@tagbytag.es<br>
+      </div>
+      <p>O dejame mensaje aqui!</p>
+      
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Nombre" required id="nombre" name="nombre">
+          </div>
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="email" placeholder="Email" required id="correo" name="correo">
+          </div>
+        </div>
+        <input class="w3-input w3-border" type="text" placeholder="Mensaje" required id="text_mensaje" name="text_mensaje">
+        <button class="w3-button color2 w3-right w3-section" id="Mensaje">
+            <i class='fa fa-paper-plane'></i>Enviar</button>
+            <div id='dataPHP'></div>   
+            
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center color3 w3-padding-64">
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>Arriba</a>
+  <p class="mt-4 mb-3">&copy; TagByTag2018</p>
+</footer>
+ 
+
+
+<script>
+   
+// Modal Image Gallery
+
+
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " color1";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top color1", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+</script>
+</body>
+</html>
